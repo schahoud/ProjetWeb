@@ -1,0 +1,17 @@
+
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+
+la liste
+  
+<!--  <p th:text="${liste}" /> -->
+
+	<ul>
+       <li th:each="item : ${liste}"><p th:text="${item}">Item description here...</p><a th:href="@{ModifUtilisateur?id={id}(id=${item.id})}" >modifier</a> / <a th:href="@{SuppUtilisateur?id={id}(id=${item.id})}" >supprimer</a></li>
+    </ul>
+
+</body>
+</html>

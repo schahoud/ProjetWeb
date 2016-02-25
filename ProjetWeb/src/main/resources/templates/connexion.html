@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:text="${message}"></p>
+	
+	<form th:action="@{/Login}" method="post" th:object="${utilisateur}">
+		Email : <input th:field="*{Email}" name="email" type="text" /><br/>
+		mot de passe : <input th:field="*{Mot_de_passe}" name="mot_de_passe" type="text" /><br/>
+		<input type="submit" value="login"/>
+	</form>
+</body>
+</html>

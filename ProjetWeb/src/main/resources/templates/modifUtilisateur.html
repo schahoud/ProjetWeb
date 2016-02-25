@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+
+<form th:action="@{/ModifUtilisateur}" method="post" th:object="${utilisateur}">
+	
+	id : <input type="hidden" th:value="${utilisateur.id}" th:field="*{Id}"/>
+	nom : <input type="text" th:value="${utilisateur.nom}" th:field="*{Nom}"/>
+	prenom : <input type="text" th:value="${utilisateur.prenom}" th:field="*{Prenom}"/>
+	sexe : <input type="text" th:value="${utilisateur.sexe}" th:field="*{Sexe}"/>
+	adresse : <input type="text" th:value="${utilisateur.adresse}" th:field="*{Adresse}"/>
+	
+	<input type="submit" value="modifier"/>
+</form>
+
+</body>
+</html>

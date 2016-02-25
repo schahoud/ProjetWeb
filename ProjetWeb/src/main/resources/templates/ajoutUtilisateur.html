@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Inscription</h2>
+  
+
+	<form th:action="@{/AjoutUtilisateur}" method="post" th:object="${utilisateur}">
+		Nom : <input th:field="*{Nom}" name="nom" type="text" /><br/>
+		Prenom : <input th:field="*{Prenom}" name="prenom" type="text" /><br/>
+		Sexe : <input th:field="*{Sexe}" name="sexe" type="text" /><br/>
+		Adresse : <input th:field="*{Adresse}" name="adresse" type="text" /><br/>
+		Email : <input th:field="*{Email}" name="email" type="text" /><br/>
+		Mot de passe : <input th:field="*{Mot_de_passe}" name="mot_de_passe" type="text" /><br/>
+		<input type="submit" value="s'inscrire"/>
+	</form>
+	
+</body>
+</html>
