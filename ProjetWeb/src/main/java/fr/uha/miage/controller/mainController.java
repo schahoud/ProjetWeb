@@ -1,5 +1,8 @@
 package fr.uha.miage.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fr.uha.miage.model.Location;
+import fr.uha.miage.model.LocationRepository;
+import fr.uha.miage.model.LocationRepositoryImpl;
 import fr.uha.miage.model.Utilisateur;
 import fr.uha.miage.model.UtilisateurRepository;
 import fr.uha.miage.model.UtilisateurRepositoryImpl;
@@ -23,6 +29,12 @@ public class mainController {
 	@Autowired
 	UtilisateurRepositoryImpl utilisateurRepoImpl ; 
 	
+	@Autowired
+	LocationRepository locationRep ; 
+	
+	@Autowired
+	LocationRepositoryImpl locationRepoImpl ;
+
 
 	@RequestMapping("/home")
 	public String requestCreatePage(Model model){		
@@ -127,6 +139,64 @@ public class mainController {
 		}
 		
     }
+	
+	
+	
+	
+	
+	
+	
+	
+	/* Location */
+	
+	@RequestMapping("/AjoutLocation")
+	public String InsererLocation(Model model) {
+		model.addAttribute("location", new Location());
+		return "ajoutLocation";
+    }
+
+	@RequestMapping(value="/AjoutLocation", method=RequestMethod.POST)
+	public String validerlocation(Location  location) {
+		System.out.println("ici");
+		locationRep.save(location);
+        
+        System.out.println("nbr favoris dans bd : " + locationRep.count());
+		return "redirect:/home";
+		
+    }
+
+	@RequestMapping("/ListeLocation")
+	public String listLocation(Model model) {
+		model.addAttribute("listeloc", locationRepoImpl.printRepClient());
+		List<Location> lo= new ArrayList<Location>();
+		lo=locationRepoImpl.printRepClient();
+		return "listeLocations";
+    }
+
+	@RequestMapping("/ModifLocation")
+	public String modifLocation(Model model, Long id) {
+		model.addAttribute("location", locationRepoImpl.rechercheLocationById(id));
+		return "modifLocation";
+    }
+
+	@RequestMapping(value="/ModifLocation", method=RequestMethod.POST)
+	public String validerModifLocation(Location location) {
+		locationRep.save(location);
+	     System.out.println("nbr favoris dans bd : " + locationRep.count());
+	     return "redirect:/home";
+    }
+
+	@RequestMapping(value="/suppLocation")
+	public String validerSuppLocation(Model model, Long id) {
+		locationRepoImpl.suppLocationById(id);  
+		
+	     System.out.println("nbr favoris dans bd : " + utilisateurRepo.count());
+	     return "redirect:/home";
+    }
+
+	
+	
+	
 	
 	@RequestMapping("/succes")
 	public String succes(Model model){		

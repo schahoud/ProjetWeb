@@ -7,10 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Entity
 public class Location implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue
 	private Long id;
 	private Long id_utilisateur;	//propriétaire
 	private String titre;

@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+
+la liste
+  
+<!--  <p th:text="${listeloc}" /> -->
+
+	<ul>
+       <li th:each="item : ${listeloc}"><p th:text="${item}">Item description here...</p><a th:href="@{ModifLocation?id={id}(id=${item.id})}" >modifier</a> / <a th:href="@{suppLocation?id={id}(id=${item.id})}" >supprimer</a></li>
+    </ul>
+
+</body>
+</html>

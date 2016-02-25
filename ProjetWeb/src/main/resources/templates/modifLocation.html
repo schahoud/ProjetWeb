@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+
+<form th:action="@{/ModifLocation}" method="post" th:object="${location}">
+
+	
+	id_loc : <input type="hidden" th:value="${location.id}" th:field="*{Id}"/>
+	id : <input type="hidden" th:value="${location.id_utilisateur}" th:field="*{Id_utilisateur}"/>
+	Titre : <input type="text" th:value="${location.titre}" th:field="*{Titre}"/>
+	Resume : <input type="text" th:value="${location.resume}" th:field="*{Resume}"/>
+	Adresse : <input type="text" th:value="${location.adresse}" th:field="*{Adresse}"/>
+	Ville : <input type="text" th:value="${location.ville}" th:field="*{Ville}"/>
+	Pays : <input type="text" th:value="${location.pays}" th:field="*{pays}"/>
+	Type propriete : <input type="text" th:value="${location.type_propriete}" th:field="*{Type_propriete}"/>
+	Type logement : <input type="text" th:value="${location.type_logement}" th:field="*{Type_logement}"/>
+	Capacite accueil : <input type="text" th:value="${location.capacite_accueil}" th:field="*{Capacite_accueil}"/>
+	nbr_chambres : <input type="text" th:value="${location.nbr_chambres}" th:field="*{Nbr_chambres}"/>
+	nbr_lits : <input type="text" th:value="${location.nbr_lits}" th:field="*{Nbr_lits}"/>
+	nbr_sallesBain : <input type="text" th:value="${location.nbr_sallesBain}" th:field="*{Nbr_sallesBain}"/>
+	equipements : <input type="text" th:value="${location.equipements}" th:field="*{equipements}"/>
+	photo1 : <input type="text" th:value="${location.photo1}" th:field="*{Photo1}"/>
+	photo2 : <input type="text" th:value="${location.photo2}" th:field="*{Photo2}"/>
+	photo3 : <input type="text" th:value="${location.photo3}" th:field="*{Photo3}"/>
+	prix_unit : <input type="text" th:value="${location.prix_unit}" th:field="*{Prix_unit}"/>
+	devise : <input type="text" th:value="${location.devise}" th:field="*{Devise}"/>
+	
+	<input type="submit" value="modifier"/>
+</form>
+
+</body>
+</html>

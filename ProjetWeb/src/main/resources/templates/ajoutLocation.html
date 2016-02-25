@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Ajout Location</h2>
+  
+
+	<form th:action="@{/AjoutLocation}" method="post" th:object="${location}">
+		Titre : <input th:field="*{Titre}" name="titre" type="text" /><br/>
+		Resume : <input th:field="*{Resume}" name="resume" type="text" /><br/>
+		Adresse : <input th:field="*{Adresse}" name="adresse" type="text" /><br/>
+		Ville : <input th:field="*{Ville}" name="ville" type="text" /><br/>
+		Pays : <input th:field="*{Pays}" name="pays" type="text" /><br/>
+		Type propriete : <input th:field="*{Type_propriete}" name="type_propriete" type="text" /><br/>
+		Type logement : <input th:field="*{Type_logement}" name="type_logement" type="text" /><br/>
+		Capacite accueil : <input th:field="*{Capacite_accueil}" name="capacite_accueil" type="text" /><br/>
+		nbr_chambres : <input th:field="*{Nbr_chambres}" name="nbr_chambres" type="text" /><br/>
+		nbr_lits : <input th:field="*{Nbr_lits}" name="nbr_lits" type="text" /><br/>
+		nbr_sallesBain : <input th:field="*{Nbr_sallesBain}" name="nbr_sallesBain" type="text" /><br/>
+		equipements : <input th:field="*{Equipements}" name="equipements" type="text" /><br/>
+		photo1 : <input th:field="*{Photo1}" name="photo1" type="text" /><br/>
+		photo2 : <input th:field="*{Photo2}" name="photo2" type="text" /><br/>
+		photo3 : <input th:field="*{Photo3}" name="photo3" type="text" /><br/>
+		prix_unit : <input th:field="*{Prix_unit}" name="prix_unit" type="text" /><br/>
+		devise : <input th:field="*{Devise}" name="devise" type="text" /><br/>
+		
+		
+		
+		
+		
+		<input type="submit" value="Ajouter"/>
+	</form>
+	
+</body>
+</html>
