@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<!--  
+	Details Reservation : <br/><br/>
+
+	Ville : <i th:text="${ville}"></i> <br/>
+	Début : <i th:text="${date_debut}"></i> <br/>
+	Fin : <i th:text="${date_fin}"></i> <br/>
+	Nb voyageurs : <i th:text="${nb_voyageurs}"></i> <br/>
+	
+	
+	<br/><br/><br/><br/>
+	
+	Details Location : <br/><br/>
+	id : <i th:text="${item.id}"></i> <br/>
+	...
+	
+	<br/><br/>
+	
+	<form th:action="@{/DetailsLocation}" method="post" >
+       			 <input th:value="${item.id}"  name="id" type="hidden" />
+       			 <input th:value="${ville}"  name="ville" type="hidden" />
+				 <input th:value="${date_debut}"  name="date_debut" type="hidden" />
+				 <input th:value="${date_fin}" name="date_fin" type="hidden" />
+				 <input th:value="${nb_voyageurs}" name="nb_voyageurs" type="hidden" />
+		
+       	
+    			<p th:text="${item}">Item description here...</p>
+    			<input type="submit" value="Details/Reserver"/>
+    </form>-->
+</body>
+</html>

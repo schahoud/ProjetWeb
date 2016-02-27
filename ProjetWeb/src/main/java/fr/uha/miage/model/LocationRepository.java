@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface LocationRepository  extends CrudRepository<Location, Long>{
 	
     List<Location> findByTitre(String titre); 
-}
+    List<Location> findByVille(String ville);
+ }

@@ -1,7 +1,7 @@
 package fr.uha.miage.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,9 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fr.uha.miage.Mail;
 import fr.uha.miage.model.Location;
 import fr.uha.miage.model.LocationRepository;
 import fr.uha.miage.model.LocationRepositoryImpl;
+import fr.uha.miage.model.Reservation;
+import fr.uha.miage.model.ReservationRepository;
+import fr.uha.miage.model.ReservationRepositoryImpl;
 import fr.uha.miage.model.Utilisateur;
 import fr.uha.miage.model.UtilisateurRepository;
 import fr.uha.miage.model.UtilisateurRepositoryImpl;
@@ -34,6 +38,12 @@ public class mainController {
 	
 	@Autowired
 	LocationRepositoryImpl locationRepoImpl ;
+	
+	@Autowired
+	ReservationRepository reservationRepo ; 
+	
+	@Autowired
+	ReservationRepositoryImpl reservationsRepoImpl ; 
 
 
 	@RequestMapping("/home")
@@ -41,6 +51,8 @@ public class mainController {
 		return "home";
 	}
 	
+	
+	/* ----------------- Partie utilisateur ----------------- */
 	
 	@RequestMapping("/AjoutUtilisateur")
 	public String inscription(Model model) {
@@ -145,9 +157,7 @@ public class mainController {
 	
 	
 	
-	
-	
-	/* Location */
+	/* ----------------- Partie location (annonce) ----------------- */
 	
 	@RequestMapping("/AjoutLocation")
 	public String InsererLocation(Model model) {
@@ -167,9 +177,9 @@ public class mainController {
 
 	@RequestMapping("/ListeLocation")
 	public String listLocation(Model model) {
-		model.addAttribute("listeloc", locationRepoImpl.printRepClient());
-		List<Location> lo= new ArrayList<Location>();
-		lo=locationRepoImpl.printRepClient();
+		model.addAttribute("listeloc", locationRepoImpl.printRepLocation());
+		//List<Location> lo= new ArrayList<Location>();
+		//lo=locationRepoImpl.printRepLocation();
 		return "listeLocations";
     }
 
@@ -196,6 +206,91 @@ public class mainController {
 
 	
 	
+	
+	
+	
+	
+	
+	/* ----------------- Partie reservation ----------------- */
+	
+	
+	
+	/* 1. Recherche d'une location
+	 * 2. Affichage des résultats 
+	 * 3. Affichage des details d'une location
+	 * 4. reserver
+	 */
+	
+	@RequestMapping(value="/RechLocation")
+	public String rechLocation(Model model) {
+	    return "rechercheLocation";
+    }
+	
+	@RequestMapping(value="/resultRechLocation", method=RequestMethod.POST)
+	public String resultRechLocation(Model model, HttpServletRequest request) {
+		String ville = request.getParameter("ville");
+		String date_debut = request.getParameter("date_debut");
+		String date_fin = request.getParameter("date_fin");
+		String nb_voyageurs = request.getParameter("nb_voyageurs");
+		
+		System.out.println("ville est : " + ville);
+		System.out.println("date début est : " + date_debut);
+		System.out.println("date fin est : " + date_fin);
+		System.out.println("nb voyageurs est : " + nb_voyageurs);
+		
+		model.addAttribute("liste", locationRep.findByVille(ville));
+		model.addAttribute("ville", ville);
+		model.addAttribute("nb_voyageurs", nb_voyageurs);
+		model.addAttribute("date_debut", date_debut);
+		model.addAttribute("date_fin", date_fin);
+		
+	    return "resultRechLocation";
+    }
+	
+	
+	
+	@RequestMapping("/Reservation")
+	public String detailsLocation(Model model, HttpServletRequest request) {
+		
+		String id = request.getParameter("id");
+		String ville = request.getParameter("ville");
+		String date_debut = request.getParameter("date_debut");
+		String date_fin = request.getParameter("date_fin");
+		String nb_voyageurs = request.getParameter("nb_voyageurs");
+		
+		/*model.addAttribute("location", locationRepoImpl.rechercheLocationById(Long.parseLong(id)));
+		model.addAttribute("ville", ville);
+		model.addAttribute("nb_voyageurs", nb_voyageurs);
+		model.addAttribute("date_debut", date_debut);
+		model.addAttribute("date_fin", date_fin);*/
+		
+		System.out.println("id est : " + id);
+		System.out.println("ville est : " + ville);
+		System.out.println("date début est : " + date_debut);
+		System.out.println("date fin est : " + date_fin);
+		System.out.println("nb voyageurs est : " + nb_voyageurs);
+		
+		Reservation resa = new Reservation(null, Long.parseLong(id), new Date(), new Date(), Integer.parseInt(nb_voyageurs), 0);
+		reservationsRepoImpl.ajoutReservation(resa);
+		System.out.println(reservationsRepoImpl.countReservation());
+		return "detailsLocation";
+    }
+	
+	
+	
+	
+	
+	
+	/* ----------------- Global informations ----------------- */
+	
+	@RequestMapping(value="/EnvoiMail")
+	public String envoiMail(Model model) {
+		
+		Mail.sendGmail("Création d'une location", 
+				"Bonjour cher client, \n\nVotre location a été bien crée", 
+				"s.chahoud.215@gmail.com");
+	    return "home";
+    }
 	
 	
 	@RequestMapping("/succes")

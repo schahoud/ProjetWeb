@@ -40,7 +40,7 @@ public class LocationRepositoryImpl {
 		return locationRep.count(); 
 	}
 	
-	public List<Location> printRepClient() 
+	public List<Location> printRepLocation() 
 	{
 		return (List<Location>)locationRep.findAll() ; 
 	}

@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+
+la liste
+
+<!--  <p th:text="${listeloc}" /> -->
+
+	Critères : <i th:text="${ville}"></i> / <i th:text="${date_debut}"></i> / <i th:text="${date_fin}"></i> / nb voyageurs : <i th:text="${nb_voyageurs}"></i>
+	<!--  
+	<ul>
+       	<li th:each="item : ${liste}">
+    		<p th:text="${item}">Item description here...</p>
+    		<a th:href="@{DetailsLocation?id={id}(id=${item.id}&loc={id1}(id1=${item.id})}" >details</a>
+    		
+    	</li>
+    </ul>
+    -->
+    <ul>
+       	<li th:each="item : ${liste}">
+       		<form th:action="@{/Reservation}" method="post" >
+       			 <input th:value="${item.id}"  name="id" type="hidden" />
+       			 <input th:value="${ville}"  name="ville" type="hidden" />
+				 <input th:value="${date_debut}"  name="date_debut" type="hidden" />
+				 <input th:value="${date_fin}" name="date_fin" type="hidden" />
+				 <input th:value="${nb_voyageurs}" name="nb_voyageurs" type="hidden" />
+		
+       	
+    			<p th:text="${item}">Item description here...</p>
+    			<input type="submit" value="Reserver"/>
+    		</form>
+    	</li>
+    </ul>
+    	
+		
+		
+		
+		
+	
+</body>
+</html>
