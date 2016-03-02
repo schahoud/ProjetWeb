@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Rechercher une location</h2>
+  
+
+	<form th:action="@{/resultRechLocation}" method="post" >
+		Ville : <input  name="ville" type="text" /><br/>
+		Date début : <input  name="date_debut" type="date" /><br/>
+		Date fin : <input name="date_fin" type="date" /><br/>
+		Nombre voyageurs : <input name="nb_voyageurs" type="number" /><br/>
+		
+		<input type="submit" value="Lancer la recherche"/>
+	</form>
+	
+</body>
+</html>
