@@ -46,13 +46,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="header-grids">
 				<div class="logo">
-					<h1><a  href="index.html"><span>Aji</span>Terrah</a></h1>
+					<h1><a  href="index.html"><span>Aji</span>Tertahe</a></h1>
 				</div>
 				<!--navbar-header-->
 				<div class="header-dropdown">
 					<div class="emergency-grid">
 						<ul>
-							<li>Contactez-nous </li>
+							<li>Contacter nous : </li>
 							<li class="call">+1 234 567 8901</li>
 						</ul>
 					</div>
@@ -64,10 +64,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-nav">
 					<span class="menu"><img src="images/menu.png" alt="" /></span>
 					<ul class="nav1">
-						<li><a href="Accueil">Accueil</a></li>
-						<li th:if="${session.utilisateur != null}"><a href="AjoutLocation">Partagez votre logement</a></li>
-						<li th:if="${session.utilisateur != null}"><a href="ListeLocation">Gérez vos annonces</a></li>
-						<li th:if="${session.utilisateur != null}"><a href="Profil">Votre profil</a></li>
+						<li><a href="index.html">Flights</a></li>
+						<li><a href="hotels.html">Hotels</a></li>
+						<li><a href="holidays.html">Holidays</a></li>
+						<li><a href="flights-hotels.html">Flight+Hotel</a></li>
+						<li><a href="bus.html">Bus</a></li>
+						<li><a href="trains.html">Trains</a></li>
+						<li><a href="weekend.html">Weekend Getaways</a></li>
+						<li><a href="deals.html">Deals</a></li>
 					</ul>
 					<div class="clearfix"> </div>
 					<!-- script-for-menu -->
@@ -82,11 +86,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<!-- /script-for-menu -->
 				</div>
 				<div class="dropdown-grids">
-						<div id="loginContainer" th:if="${session.utilisateur == null}"><a href="/Login" id="loginButton" onclick="window.location = '/Login';"><span >Connexion</span></a>
-							
-						</div>
-						<div id="loginContainer" th:if="${session.utilisateur != null}"><a href="/Logout" id="loginButton" onclick="window.location = '/Logout';"><span >Déconnexion</span></a>
-							
+						<div id="loginContainer"><a href="#" id="loginButton"><span>Connexion</span></a>
+							<div id="loginBox">                
+								<form id="loginForm">
+									<div class="login-grids">
+										<div class="login-grid-left">
+											<fieldset id="body">
+												<fieldset>
+													<label for="email">Adresse E-Mail</label>
+													<input type="text" name="email" id="email"/>
+												</fieldset>
+												<fieldset>
+													<label for="password">Mot de passe</label>
+													<input type="password" name="password" id="password"/>
+												</fieldset>
+												<input type="submit" id="login" value="Sign in"/>
+												<label for="checkbox"><input type="checkbox" id="checkbox" /> <i>Sauvegarder</i></label>
+											</fieldset>
+											<span><a href="#">Mot de passe oublié?</a></span>
+											<div class="or-grid">
+												<p>OU</p>
+											</div>
+											<div class="social-sits">
+												<div class="facebook-button">
+													<a href="#">Connection avec Facebook</a>
+												</div>
+												<div class="chrome-button">
+													<a href="#">Connection avec Google</a>
+												</div>
+												<div class="button-bottom">
+													<p>Vous n'avez pas de compte? <a href="signup.html">Inscription</a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
 						</div>
 				</div>
 				<div class="clearfix"> </div>
@@ -99,173 +134,190 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- container -->
 		<div class="container">
 			<div class="faqs-top-grids">
-				<div class="book-grids">
-					<div class="col-md-6 book-left">
-						<div class="book-left-info">
-							<h3>Publiez votre annonce</h3>
-							<h6><i>Notre plateforme vous permet de gagner de l'argent en louant votre logement.</i></h6>
+				<!--single-page-->
+				<div class="single-page">
+						<div class="col-md-8 single-gd-lt">
+							<div class="single-pg-hdr">
+								<h2>riye7e mriye7e molay 3e9obe</h2>
+								<p>Eiusmod Tempor inc , St Dolore Place,Kingsport 56777</p>
+								<p>Jump to: <a href="#">Over View</a>|<a href="#">Room Choices</a>|<a href="#">Hotel Information</a></p>
+							</div>
+							<div class="flexslider">
+											<ul class="slides">
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p4.jpg">
+													<img src="images/p4.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p4.jpg">
+													<img src="images/p4.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p4.jpg">
+													<img src="images/p4.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p4.jpg">
+													<img src="images/p4.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+											</ul>
+							</div>
+										<!-- FlexSlider -->
+									<script defer src="js/jquery.flexslider.js"></script>
+										<script>
+										// Can also be used with $(document).ready()
+										$(window).load(function() {
+										  $('.flexslider').flexslider({
+											animation: "slide",
+											controlNav: "thumbnails"
+										  });
+										});
+										</script>
+
 						</div>
-						<div class="book-left-form">
-							<form th:action="@{/AjoutLocation}" method="post" th:object="${location}" enctype="multipart/form-data">
-	<br/><br/>
-								<h4>Caractéristiques du logement</h4>
-								<br/>
-								
-								<p>Type de propriété</p>
-								
-								<select th:field="*{Type_propriete}" name="nom" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								   <option value="Appartement">Appartement</option>
-								   <option value="Maison">Maison</option>
-								   <option value="Villa">Villa</option>
-								   <option value="Bateau">Bateau</option>
-								   <option value="Chalet">Chalet</option>
-								   <option value="Bungalow">Bungalow</option>
-								   <option value="Camping car">Camping car</option>
-								</select> 
-		
-		
-								<p>Type de logement</p>
-								<!--  <input th:field="*{Type_logement}" name="prenom" type="text" /><br/>-->
-								<select th:field="*{Type_logement}" name="prenom" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								   <option value="Logement entier">Logement entier</option>
-								   <option value="Chambre privée">Chambre privée</option>
-								   <option value="Chambre partagée">Chambre partagée</option>
-								</select> 
-					
-					
-								<p>Capacité d'accueil</p>
-								<input th:field="*{Capacite_accueil}" name="sexe" type="text" /><br/>
-					
-								<p>Ville</p>
-								<input th:field="*{Ville}" name="adresse" type="text" /><br/>
-		
-								
-								<br/><br/>
-								<h4>Informations de base</h4>
-								<br/>
-								
-								<p>Nombre de chambres</p> 
-								<input th:field="*{nbr_chambres}" name="email" type="text" /><br/>
-		
-								<p>Nombre de lits</p>
-								<input th:field="*{nbr_lits}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Nombre de salles de bain</p>
-								<input name="nbr_sallesBain" type="text" /><br/>
-								
-								
-								<br/><br/>
-								<h4>Description</h4>
-								<br/>
-		
-								
-								<p>Titre du logement</p> 
-								<input th:field="*{titre}" name="email" type="text" /><br/>
-		
-								<p>Description</p>
-								<input th:field="*{resume}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Photos (max. 3)</p>
-								<input name="file1" type="file" /><br/>
-								<input name="file2" type="file" /><br/>
-								<input name="file3" type="file" /><br/>
-		
-		
-		
-								<br/><br/>
-								<h4>Adresse</h4>
-								<br/>
-										
-								<p>Adresse</p> 
-								<input th:field="*{adresse}" name="email" type="text" /><br/>
-		
-								<p>Ville</p>
-								<input th:field="*{ville}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Pays</p>
-								<input th:field="*{pays}" name="mot_de_passe" type="text" /><br/>
-		
-		
-		
-								<br/><br/>
-								<h4>Equipements</h4>
-								<br/>
-		
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Télévision" /> Télévision
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Climatisation" /> Climatisation
-								</label> 
-								<br/>
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Cuisine" /> Cuisine
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Internet" /> Internet
-								</label> 
-								<br/>
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Animaux acceptés" /> Animaux acceptés
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Accès handicapés" /> Accès handicapés
-								</label> 
-								<br/>
-								
-								
-								<br/><br/><br/><br/><br/>
-								<h4>Tarifs</h4>
-								<br/>
-		
-								<p>Prix à la nuit</p> 
-								<input th:field="*{prix_unit}" name="email" type="text" /><br/>
-		
-								<p>Devise</p>
-								<input th:field="*{devise}" name="mot_de_passe" type="text" /><br/>
-		
-								
-								<input type="submit" value="valider l'annonce"/>
-								
-	
-		
-		
-								<!--  
-								<p>Nom</p>
-								<input type="text" value=""   />
-								<p>Prénom</p>
-								<input type="text" value="" />
-								<p>Numero de téléphone</p>
-								<input type="text" value=""  />
-								<p>Addresse E-Mail</p>
-								<input type="text" value=""  />
-								<p>Date de naissance</p>
-								<form>
-								<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-								<input type="date" value="Choisissez une date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}" />
-								</form>
-                                <br/>								
-								<p>Mot de passe</p>
-								<input type="password" name="password" id="password" />
-								<p>Confirmation du mot de Passe</p>
-								<input type="password" name="password" id="password" />
-								<label for="checkbox"><input type="checkbox" id="checkbox" /> <i>Sauvegarder</i></label>
-								<input type="submit" id="login" value="Validation de l'incption" />
-								-->
-							</form>
+						<div class="col-md-4 single-gd-rt">
+							<div class="spl-btn">
+								<div class="spl-btn-bor">
+									<a href="#">
+										<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>											
+									</a>
+									<p>Prix</p>	
+									<script>
+										$(document).ready(function(){
+										$('[data-toggle="tooltip"]').tooltip();   
+										});
+									</script>
+								</div>
+								<div class="sp-bor-btn text-right">
+									<h4>$4,850</h4>
+									<br />
+									<a class="best-btn" href="booking.html">Réserver</a>
+								</div>
+							</div>
+							<div class="map-gd">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63718.72916803739!2d102.31975295000002!3d3.489618449999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31ceba2007355f81%3A0xd2ff1ad6a3ca801!2sMentakab%2C+Pahang%2C+Malaysia!5e0!3m2!1sen!2sin!4v1439535856431"></iframe>
+							</div>
+							<div class="other-comments">
+								<div class="comments-head">
+									<h3>Excellent</h3>
+									<p>4.5/5</p>
+									<div class="clearfix"></div>
+								</div>
+								<div class="comments-bot">
+									<p>"Vestibulum ullamcorper condimentum luctus. Ut ullamcorper elit eu auctor commodo."</p>
+									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> John Doe</h4>
+								</div>
+								<div class="comments-bot">
+									<p>"Aliquam non purus quis tellus varius egestas ut vitae tellus. Pellentesque non est ac tortor maximus imperdiet at id quam."</p>
+									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Luther</h4>
+								</div>
+								<div class="comments-bot">
+									<p>"Vestibulum sapien quam, interdum quis bibendum quis, malesuada a nisi. Proin at blandit justo."</p>
+									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Patrick</h4>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-6 book-left book-right">
-						<div class="book-left-info">
-							<h3></h3>
-						</div>
-						<div class="book-left-bottom">
-							<br/><br/>
-						</div>
-						<br/><br/><br/><br/>
-					</div>
-					<div class="clearfix"> </div>
+						<div class="clearfix"></div>
 				</div>
+				<!--//single-page-->
+			</div>
+			<div class="c-rooms">
+				<div class="p-table">
+					<div class="p-table-grids">
+						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>Room type</h6>
+							</div>
+							<div class="p-table-grid-info">
+								<!--<a href="#"><img src="images/p2.jpg" alt=""></a>-->
+								<div class="room-basic-info">
+									<a href="#">Fusce vestibulum ultricies rutrum</a>
+									<h6>1 king bed or  2 single beds</h6>
+									<p>Vestibulum ullamcorper(condimentum luctus)</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>Options</h6>
+							</div>
+							<div class="rate-features">
+								<ul>
+									<li>Morbi mollis mattis</li>
+									<li>Donec egestas</li>
+									<li>Donec non risus</li>
+									<li>Pellentesque sem</li>
+									<li>Sed ut urna id metus</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>Avg rate per night</h6>
+							</div>
+							<div class="avg-rate">
+								<h5>Recommended for you</h5>
+								<p>Price is now:</p>
+								<span class="p-offer">$140</span>
+								<span class="p-last-price">$230</span>
+							</div>
+							
+						</div>
+						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>Book</h6>
+							</div>
+							<div class="book-button-column">
+								<a href="#">Book</a>
+							</div>
+							
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				
+				
 			</div>
 		</div>
 		<!-- //container -->
@@ -278,7 +330,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="footer-top-grids">
 				<div class="footer-grids">
 					<div class="col-md-3 footer-grid">
-						<h4>Nos Produits</h4>
+						<h4>Our Products</h4>
 						<ul>
 							<li><a href="index.html">Flight Schedule</a></li>
 							<li><a href="flights-hotels.html">City Airline Routes</a></li>
@@ -404,7 +456,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 		</div>
 	</div>
-	<script src="js/jquery.flexslider.js"></script>
+	<script  src="js/jquery.flexslider.js"></script>
 	<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>	

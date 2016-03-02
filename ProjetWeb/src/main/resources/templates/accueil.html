@@ -1,0 +1,304 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>AjiTertah s'occupe de votre hebergement </title>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Govihar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Custom Theme files -->
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all" />
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all" />
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link type="text/css" rel="stylesheet" href="css/JFFormStyle-1.css" />
+<!-- js -->
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<!-- //js -->
+<!-- fonts -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,700italic,900,900italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' />
+<!-- //fonts -->	
+<script type="text/javascript">
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true   // 100% fit in a container
+			});
+		});
+	</script>
+<!--pop-up-->
+<script src="js/menu_jquery.js"></script>
+<!--//pop-up-->	
+</head>
+<body>
+	<!--header-->
+	<div class="header">
+		<div class="container">
+			<div class="header-grids">
+				<div class="logo">
+					<h1><a  href="index.html"><span>Aji</span>Tertahe</a></h1>
+				</div>
+				<!--navbar-header-->
+				<div class="header-dropdown">
+					<div class="emergency-grid">
+						<ul>
+							<li>Contactez nous : </li>
+							<li class="call">+33 7 52 29 42 82</li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="nav-top">
+				<div class="top-nav">
+					<span class="menu"><img src="images/menu.png" alt="" /></span>
+					<ul class="nav1">
+					<li><a href="Accueil">Accueil</a></li>
+						<li th:if="${session.utilisateur != null}"><a href="AjoutLocation">Partagez votre logement</a></li>
+						<li th:if="${session.utilisateur != null}"><a href="ListeLocation">Gérez vos annonces</a></li>
+						<li th:if="${session.utilisateur != null}"><a href="Profil">Votre profil</a></li>
+					</ul>
+					<div class="clearfix"> </div>
+					<!-- script-for-menu -->
+							 <script> 
+							   $( "span.menu" ).click(function() {
+								 $( "ul.nav1" ).slideToggle( 300, function() {
+								 // Animation complete.
+								  });
+								 });
+							
+							</script>
+						<!-- /script-for-menu -->
+				</div>
+				<div class="dropdown-grids">
+						<div id="loginContainer" th:if="${session.utilisateur == null}"><a href="/Login" id="loginButton" onclick="window.location = '/Login';"><span >Connexion</span></a>
+							
+						</div>
+						<div id="loginContainer" th:if="${session.utilisateur != null}"><a href="/Logout" id="loginButton" onclick="window.location = '/Logout';"><span >Déconnexion</span></a>
+							
+						</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--//header-->
+	<!-- banner -->
+	<div class="banner hotels-banner">
+		<!-- container -->
+		<div class="container">
+			<div class="col-md-4 banner-left">
+				<section class="slider2">
+					<div class="flexslider">
+						<ul class="slides">
+							<li>
+								<div class="slider-info">
+									<img src="images/5.jpg" alt="" />
+								</div>
+							</li>
+							<li>
+								<div class="slider-info">
+									<img src="images/6.jpg" alt="" />
+								</div>
+							</li>
+							<li>	
+								<div class="slider-info">
+									<img src="images/7.jpg" alt="" />
+								</div>
+							</li>
+							<li>	
+								<div class="slider-info">
+									<img src="images/8.jpg" alt="" />
+								</div>
+							</li>
+							<li>	
+								<div class="slider-info">
+									<img src="images/6.jpg" alt="" />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<!--FlexSlider-->
+			</div>
+			<div class="col-md-8 banner-right">
+				<div class="sap_tabs">	
+					<div class="booking-info about-booking-info">
+						<h2>Reservez un logement</h2>
+					</div>
+					<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">	
+						  		  	 
+									<div class="facts about-facts train-facts">
+										<div class="booking-form train-form">
+										<link rel="stylesheet" href="css/jquery-ui.css" />
+											
+											<script>
+												$(function() {
+													$( "#datepicker,#datepicker1" ).datepicker();
+												});
+											</script>
+											
+											<div class="online_reservation">
+													<div class="b_room">
+														<div class="booking_room">
+														<form th:action="@{/resultRechLocation}" method="post" >
+																				
+															<div class="reservation">
+																<ul>		
+																	<li  class="span1_of_1 desti about-desti">
+																		 <h5>Destination</h5>
+																		 <div class="book_date">
+										
+																				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+																				<input type="text" name="ville" placeholder="Où voulez-vous aller?" class="typeahead1 input-md form-control tt-input" required="" />
+																			
+																		 </div>					
+																	 </li>
+																</ul>
+															</div>
+															<div class="reservation">
+																<ul>	
+																	 <li  class="span1_of_1">
+																		 <h5>Date d'arrivée</h5>
+																		 <div class="book_date">
+																		 
+																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+																			<input type="date" name="date_debut" value="Choisissez une date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}" />
+																		
+																		 </div>		
+																	 </li>
+																	 <li  class="span1_of_1 left">
+																		 <h5>Date de départ</h5>
+																		 <div class="book_date">
+																			 
+																				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+																				<input type="date" name="date_fin" value="Choisissez une date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}" />
+																		
+																		 </div>					
+																	 </li>
+																	 <li class="span1_of_1 left adult">
+																		 <h5>Nombre de voyageurs</h5>
+																		 <div class="section_room">
+																			  <select id="country" name="nb_voyageurs" onchange="change_country(this.value)" class="frm-field required">
+																					<option value="1">1</option>
+																					<option value="2">2</option>         
+																					<option value="3">3</option>
+																					<option value="4">4</option>
+																					<option value="5">5</option>
+																					<option value="6">6 ou plus</option>
+																			  </select>
+																		 </div>	
+																	</li>
+															
+																	 <div class="clearfix"></div>
+																</ul>
+															</div>
+															<div class="reservation">
+																<ul>
+																	
+																	<div class="clearfix"></div>
+																</ul>
+															</div>
+															<div class="reservation">
+																<ul>	
+																	 <li class="span1_of_3">
+																			<div class="date_btn">
+																					<input style="background: #6fd508; color: #fff; font-size: 1em; margin-bottom: 1em; padding: 5px 20px; border: 1px solid #6fd508; transition: all .5s; -webkit-transition: all .5s; -moz-transition: all .5s; -o-transition: all .5s;" type="submit" value="Commencer la recherche" />						
+																			</div>
+																	 </li>
+																	 <div class="clearfix"></div>
+																</ul>
+															</div>
+														</form>
+														</div>
+														<div class="clearfix"></div>
+													</div>
+											</div>
+										</div>	
+									</div>
+					</div>	
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="move-text">
+		<div class="marquee">Choisisez votre logement gratuitement : <a href="signup.html">Ici</a></div>
+		<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
+        <script>
+		  $('.marquee').marquee({ pauseOnHover: true });
+		  //@ sourceURL=pen.js
+		</script>
+	</div>
+	
+	<div class="footer-bottom-grids">
+		<div class="container">
+				<div class="footer-bottom-top-grids">
+					<div class="col-md-4 footer-bottom-left">
+						<h4>Download our mobile Apps</h4>
+						<div class="d-apps">
+							<ul>
+								<li><a href="#"><img src="images/app1.png" alt="" /></a></li>
+								<li><a href="#"><img src="images/app2.png" alt="" /></a></li>
+								<li><a href="#"><img src="images/app3.png" alt="" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-4 footer-bottom-left">
+						<h4>We Accept</h4>
+						<div class="a-cards">
+							<ul>
+								<li><a href="#"><img src="images/c1.png" alt="" /></a></li>
+								<li><a href="#"><img src="images/c2.png" alt="" /></a></li>
+								<li><a href="#"><img src="images/c3.png" alt="" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-4 footer-bottom-left">
+						<h4>Follow Us</h4>
+						<div class="social">
+							<ul>
+								<li><a href="#" class="facebook"> </a></li>
+								<li><a href="#" class="facebook twitter"> </a></li>
+								<li><a href="#" class="facebook chrome"> </a></li>
+								<li><a href="#" class="facebook dribbble"> </a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="copyright">
+						<p>Copyrights © 2015 AjiTertahe .</p>
+					</div>
+				</div>
+		</div>
+	</div>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			SyntaxHighlighter.all();
+			});
+			$(window).load(function(){
+			$('.flexslider').flexslider({
+			animation: "slide",
+			start: function(slider){
+			$('body').removeClass('loading');
+			}
+			});
+		});
+	</script>		
+</body>
+</html>

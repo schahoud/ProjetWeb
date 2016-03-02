@@ -106,12 +106,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<h6><i>Notre plateforme vous permet de gagner de l'argent en louant votre logement.</i></h6>
 						</div>
 						<div class="book-left-form">
-							<form th:action="@{/AjoutLocation}" method="post" th:object="${location}" enctype="multipart/form-data">
+							<form th:action="@{/AjoutLocation}" method="post" th:object="${location}">
 	<br/><br/>
-								<h4>Caractéristiques du logement</h4>
+								<h4>Ajoutez des photos à votre annonce</h4>
+								<h6><i>Trois photos au maximum.</i></h6>
+						
 								<br/>
 								
 								<p>Type de propriété</p>
+								<!--  <input th:field="*{Type_propriete}" name="nom" type="text" />-->
 								
 								<select th:field="*{Type_propriete}" name="nom" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
 								   <option value="Appartement">Appartement</option>
@@ -165,11 +168,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p>Description</p>
 								<input th:field="*{resume}" name="mot_de_passe" type="text" /><br/>
 		
-								<p>Photos (max. 3)</p>
-								<input name="file1" type="file" /><br/>
-								<input name="file2" type="file" /><br/>
-								<input name="file3" type="file" /><br/>
+								<p>Photo 1</p>
+								<!--  <input th:field="*{photo1}" name="mot_de_passe" type="text" />-->
+								<input type="file" name="photo1">
+								<br/>
 		
+								<p>Photo 2</p>
+								<input th:field="*{photo2}" name="mot_de_passe" type="text" /><br/>
+		
+								<p>Photo 3</p>
+								<input th:field="*{photo3}" name="mot_de_passe" type="text" /><br/>
 		
 		
 								<br/><br/>
@@ -230,28 +238,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	
 		
 		
-								<!--  
-								<p>Nom</p>
-								<input type="text" value=""   />
-								<p>Prénom</p>
-								<input type="text" value="" />
-								<p>Numero de téléphone</p>
-								<input type="text" value=""  />
-								<p>Addresse E-Mail</p>
-								<input type="text" value=""  />
-								<p>Date de naissance</p>
-								<form>
-								<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-								<input type="date" value="Choisissez une date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}" />
-								</form>
-                                <br/>								
-								<p>Mot de passe</p>
-								<input type="password" name="password" id="password" />
-								<p>Confirmation du mot de Passe</p>
-								<input type="password" name="password" id="password" />
-								<label for="checkbox"><input type="checkbox" id="checkbox" /> <i>Sauvegarder</i></label>
-								<input type="submit" id="login" value="Validation de l'incption" />
-								-->
+							
 							</form>
 						</div>
 					</div>

@@ -102,135 +102,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="book-grids">
 					<div class="col-md-6 book-left">
 						<div class="book-left-info">
-							<h3>Publiez votre annonce</h3>
-							<h6><i>Notre plateforme vous permet de gagner de l'argent en louant votre logement.</i></h6>
+							<h3 th:text="${action}"></h3><br/><br/>
+							<h4 th:text="${message}"></h4>
 						</div>
 						<div class="book-left-form">
-							<form th:action="@{/AjoutLocation}" method="post" th:object="${location}" enctype="multipart/form-data">
-	<br/><br/>
-								<h4>Caractéristiques du logement</h4>
-								<br/>
-								
-								<p>Type de propriété</p>
-								
-								<select th:field="*{Type_propriete}" name="nom" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								   <option value="Appartement">Appartement</option>
-								   <option value="Maison">Maison</option>
-								   <option value="Villa">Villa</option>
-								   <option value="Bateau">Bateau</option>
-								   <option value="Chalet">Chalet</option>
-								   <option value="Bungalow">Bungalow</option>
-								   <option value="Camping car">Camping car</option>
-								</select> 
-		
-		
-								<p>Type de logement</p>
-								<!--  <input th:field="*{Type_logement}" name="prenom" type="text" /><br/>-->
-								<select th:field="*{Type_logement}" name="prenom" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								   <option value="Logement entier">Logement entier</option>
-								   <option value="Chambre privée">Chambre privée</option>
-								   <option value="Chambre partagée">Chambre partagée</option>
-								</select> 
+							<!-- <form th:action="@{/AjoutUtilisateur}" method="post" th:object="${utilisateur}">
 					
+								<p>Nom</p>
+								<input th:field="*{Nom}" name="nom" type="text" />
+		
+								<p>Prénom</p>
+								<input th:field="*{Prenom}" name="prenom" type="text" /><br/>
 					
-								<p>Capacité d'accueil</p>
-								<input th:field="*{Capacite_accueil}" name="sexe" type="text" /><br/>
+								<p>Sexe</p>
+								<input th:field="*{Sexe}" name="sexe" type="text" /><br/>
 					
-								<p>Ville</p>
-								<input th:field="*{Ville}" name="adresse" type="text" /><br/>
+								<p>Adresse complète</p>
+								<input th:field="*{Adresse}" name="adresse" type="text" /><br/>
 		
+								<p>Email</p> 
+								<input th:field="*{Email}" name="email" type="text" /><br/>
+		
+								<p>Mot de passe</p>
+								<input th:field="*{Mot_de_passe}" name="mot_de_passe" type="text" /><br/>
+		
+								<p>Confirmation du mot de passe</p>
+								<input th:field="*{Mot_de_passe}" name="mot_de_passe" type="text" /><br/>
 								
-								<br/><br/>
-								<h4>Informations de base</h4>
-								<br/>
+								<input type="submit" value="s'inscrire"/>
 								
-								<p>Nombre de chambres</p> 
-								<input th:field="*{nbr_chambres}" name="email" type="text" /><br/>
-		
-								<p>Nombre de lits</p>
-								<input th:field="*{nbr_lits}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Nombre de salles de bain</p>
-								<input name="nbr_sallesBain" type="text" /><br/>
-								
-								
-								<br/><br/>
-								<h4>Description</h4>
-								<br/>
-		
-								
-								<p>Titre du logement</p> 
-								<input th:field="*{titre}" name="email" type="text" /><br/>
-		
-								<p>Description</p>
-								<input th:field="*{resume}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Photos (max. 3)</p>
-								<input name="file1" type="file" /><br/>
-								<input name="file2" type="file" /><br/>
-								<input name="file3" type="file" /><br/>
-		
-		
-		
-								<br/><br/>
-								<h4>Adresse</h4>
-								<br/>
-										
-								<p>Adresse</p> 
-								<input th:field="*{adresse}" name="email" type="text" /><br/>
-		
-								<p>Ville</p>
-								<input th:field="*{ville}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Pays</p>
-								<input th:field="*{pays}" name="mot_de_passe" type="text" /><br/>
-		
-		
-		
-								<br/><br/>
-								<h4>Equipements</h4>
-								<br/>
-		
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Télévision" /> Télévision
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Climatisation" /> Climatisation
-								</label> 
-								<br/>
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Cuisine" /> Cuisine
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Internet" /> Internet
-								</label> 
-								<br/>
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Animaux acceptés" /> Animaux acceptés
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Accès handicapés" /> Accès handicapés
-								</label> 
-								<br/>
-								
-								
-								<br/><br/><br/><br/><br/>
-								<h4>Tarifs</h4>
-								<br/>
-		
-								<p>Prix à la nuit</p> 
-								<input th:field="*{prix_unit}" name="email" type="text" /><br/>
-		
-								<p>Devise</p>
-								<input th:field="*{devise}" name="mot_de_passe" type="text" /><br/>
-		
-								
-								<input type="submit" value="valider l'annonce"/>
-								
-	
-		
-		
-								<!--  
+								 
 								<p>Nom</p>
 								<input type="text" value=""   />
 								<p>Prénom</p>
@@ -251,18 +152,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<input type="password" name="password" id="password" />
 								<label for="checkbox"><input type="checkbox" id="checkbox" /> <i>Sauvegarder</i></label>
 								<input type="submit" id="login" value="Validation de l'incption" />
-								-->
-							</form>
+								
+							</form>-->
 						</div>
 					</div>
 					<div class="col-md-6 book-left book-right">
 						<div class="book-left-info">
-							<h3></h3>
+							<h3>Recommender</h3>
 						</div>
 						<div class="book-left-bottom">
-							<br/><br/>
+							<div class="book-left-facebook">
+								<a href="#">Connection avec Facebook</a>
+							</div>
+							<div class="book-left-chrome">
+								<a href="#">Connection avec Google</a>
+							</div>
 						</div>
-						<br/><br/><br/><br/>
+						<ul>
+							<li>Access booking history with upcoming trips</li>
+							<li>Print tickets and invoices</li>
+							<li>Make checkouts simpler</li>
+							<li>Enter your contact details only once</li>
+							<li>Get alerts for low fares</li>
+						</ul>
 					</div>
 					<div class="clearfix"> </div>
 				</div>

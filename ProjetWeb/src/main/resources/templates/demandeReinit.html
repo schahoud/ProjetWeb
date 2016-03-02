@@ -64,7 +64,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-nav">
 					<span class="menu"><img src="images/menu.png" alt="" /></span>
 					<ul class="nav1">
-						<li><a href="Accueil">Accueil</a></li>
+					<li><a href="Accueil">Accueil</a></li>
 						<li th:if="${session.utilisateur != null}"><a href="AjoutLocation">Partagez votre logement</a></li>
 						<li th:if="${session.utilisateur != null}"><a href="ListeLocation">Gérez vos annonces</a></li>
 						<li th:if="${session.utilisateur != null}"><a href="Profil">Votre profil</a></li>
@@ -102,167 +102,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="book-grids">
 					<div class="col-md-6 book-left">
 						<div class="book-left-info">
-							<h3>Publiez votre annonce</h3>
-							<h6><i>Notre plateforme vous permet de gagner de l'argent en louant votre logement.</i></h6>
+							<h3>Reinitialisation du mot de passe</h3>
 						</div>
 						<div class="book-left-form">
-							<form th:action="@{/AjoutLocation}" method="post" th:object="${location}" enctype="multipart/form-data">
-	<br/><br/>
-								<h4>Caractéristiques du logement</h4>
-								<br/>
-								
-								<p>Type de propriété</p>
-								
-								<select th:field="*{Type_propriete}" name="nom" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								   <option value="Appartement">Appartement</option>
-								   <option value="Maison">Maison</option>
-								   <option value="Villa">Villa</option>
-								   <option value="Bateau">Bateau</option>
-								   <option value="Chalet">Chalet</option>
-								   <option value="Bungalow">Bungalow</option>
-								   <option value="Camping car">Camping car</option>
-								</select> 
-		
-		
-								<p>Type de logement</p>
-								<!--  <input th:field="*{Type_logement}" name="prenom" type="text" /><br/>-->
-								<select th:field="*{Type_logement}" name="prenom" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								   <option value="Logement entier">Logement entier</option>
-								   <option value="Chambre privée">Chambre privée</option>
-								   <option value="Chambre partagée">Chambre partagée</option>
-								</select> 
-					
-					
-								<p>Capacité d'accueil</p>
-								<input th:field="*{Capacite_accueil}" name="sexe" type="text" /><br/>
-					
-								<p>Ville</p>
-								<input th:field="*{Ville}" name="adresse" type="text" /><br/>
-		
-								
-								<br/><br/>
-								<h4>Informations de base</h4>
-								<br/>
-								
-								<p>Nombre de chambres</p> 
-								<input th:field="*{nbr_chambres}" name="email" type="text" /><br/>
-		
-								<p>Nombre de lits</p>
-								<input th:field="*{nbr_lits}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Nombre de salles de bain</p>
-								<input name="nbr_sallesBain" type="text" /><br/>
-								
-								
-								<br/><br/>
-								<h4>Description</h4>
-								<br/>
-		
-								
-								<p>Titre du logement</p> 
-								<input th:field="*{titre}" name="email" type="text" /><br/>
-		
-								<p>Description</p>
-								<input th:field="*{resume}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Photos (max. 3)</p>
-								<input name="file1" type="file" /><br/>
-								<input name="file2" type="file" /><br/>
-								<input name="file3" type="file" /><br/>
-		
-		
-		
-								<br/><br/>
-								<h4>Adresse</h4>
-								<br/>
-										
-								<p>Adresse</p> 
-								<input th:field="*{adresse}" name="email" type="text" /><br/>
-		
-								<p>Ville</p>
-								<input th:field="*{ville}" name="mot_de_passe" type="text" /><br/>
-		
-								<p>Pays</p>
-								<input th:field="*{pays}" name="mot_de_passe" type="text" /><br/>
-		
-		
-		
-								<br/><br/>
-								<h4>Equipements</h4>
-								<br/>
-		
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Télévision" /> Télévision
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Climatisation" /> Climatisation
-								</label> 
-								<br/>
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Cuisine" /> Cuisine
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Internet" /> Internet
-								</label> 
-								<br/>
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Animaux acceptés" /> Animaux acceptés
-								</label>   
-								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Accès handicapés" /> Accès handicapés
-								</label> 
-								<br/>
-								
-								
-								<br/><br/><br/><br/><br/>
-								<h4>Tarifs</h4>
-								<br/>
-		
-								<p>Prix à la nuit</p> 
-								<input th:field="*{prix_unit}" name="email" type="text" /><br/>
-		
-								<p>Devise</p>
-								<input th:field="*{devise}" name="mot_de_passe" type="text" /><br/>
-		
-								
-								<input type="submit" value="valider l'annonce"/>
-								
+							<p th:text="${message}" style="color:red; font-style: italic;"></p>
+							
+							<form th:action="@{/DemandeReinit}" method="post" >
 	
-		
-		
-								<!--  
-								<p>Nom</p>
-								<input type="text" value=""   />
-								<p>Prénom</p>
-								<input type="text" value="" />
-								<p>Numero de téléphone</p>
-								<input type="text" value=""  />
-								<p>Addresse E-Mail</p>
-								<input type="text" value=""  />
-								<p>Date de naissance</p>
-								<form>
-								<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-								<input type="date" value="Choisissez une date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}" />
-								</form>
-                                <br/>								
-								<p>Mot de passe</p>
-								<input type="password" name="password" id="password" />
-								<p>Confirmation du mot de Passe</p>
-								<input type="password" name="password" id="password" />
-								<label for="checkbox"><input type="checkbox" id="checkbox" /> <i>Sauvegarder</i></label>
-								<input type="submit" id="login" value="Validation de l'incption" />
-								-->
+								<p>Entrez votre email</p>
+								<input name="email" type="text" />
+								
+								
+								<input type="submit" value="Envoyer"/>
+								
+			
 							</form>
 						</div>
 					</div>
 					<div class="col-md-6 book-left book-right">
 						<div class="book-left-info">
-							<h3></h3>
+							<h3>Vous n'êtes pas encore inscris ?</h3>
 						</div>
 						<div class="book-left-bottom">
-							<br/><br/>
+							<div >
+								<a style=" width:20%; background: #6fd508;color: #fff;font-size: 1em;margin-bottom: 1em;padding: 5px 20px;border: 1px solid #6fd508;transition: all .5s;-webkit-transition: all .5s;-moz-transition: all .5s; -o-transition: all .5s;" href="/DemandeReinit">Mot de passe oublié ?</a>
+								<br/><br/>
+								<a style=" width:20%; background: #6fd508;color: #fff;font-size: 1em;margin-bottom: 1em;padding: 5px 20px;border: 1px solid #6fd508;transition: all .5s;-webkit-transition: all .5s;-moz-transition: all .5s; -o-transition: all .5s;" href="/AjoutUtilisateur">      Inscription       </a>
+							</div>
+							
 						</div>
-						<br/><br/><br/><br/>
+						<br/>
 					</div>
 					<div class="clearfix"> </div>
 				</div>

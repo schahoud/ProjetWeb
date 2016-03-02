@@ -1,11 +1,11 @@
 package fr.uha.miage.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 public class Location implements Serializable{
@@ -15,7 +15,7 @@ public class Location implements Serializable{
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Long id_utilisateur;	//propriétaire
+	private Long idutilisateur;	//propriétaire
 	private String titre;
 	private String resume;
 	private String adresse;
@@ -33,21 +33,21 @@ public class Location implements Serializable{
 	private String photo3;
 	private Double prix_unit;
 	private String devise; //EUR, USD ...
-	
+	private Date date_publication;
 	
 	public Location() {
 		super();
 	}
 
 
-	public Location(Long id_utilisateur, String titre, String resume,
+	public Location(Long idutilisateur, String titre, String resume,
 			String adresse, String ville, String pays, String type_propriete,
 			String type_logement, String capacite_accueil, String nbr_chambres,
 			String nbr_lits, String nbr_sallesBain, String equipements,
 			String photo1, String photo2, String photo3, Double prix_unit,
-			String devise) {
+			String devise, Date date_publication) {
 		super();
-		this.id_utilisateur = id_utilisateur;
+		this.idutilisateur = idutilisateur;
 		this.titre = titre;
 		this.resume = resume;
 		this.adresse = adresse;
@@ -65,6 +65,7 @@ public class Location implements Serializable{
 		this.photo3 = photo3;
 		this.prix_unit = prix_unit;
 		this.devise = devise;
+		this.date_publication = date_publication;
 	}
 
 
@@ -78,13 +79,13 @@ public class Location implements Serializable{
 	}
 
 
-	public Long getId_utilisateur() {
-		return id_utilisateur;
+	public Long getIdutilisateur() {
+		return idutilisateur;
 	}
 
 
-	public void setId_utilisateur(Long id_utilisateur) {
-		this.id_utilisateur = id_utilisateur;
+	public void setIdutilisateur(Long idutilisateur) {
+		this.idutilisateur = idutilisateur;
 	}
 
 
@@ -258,9 +259,21 @@ public class Location implements Serializable{
 	}
 
 
+	
+	
+	public Date getDate_publication() {
+		return date_publication;
+	}
+
+
+	public void setDate_publication(Date date_publication) {
+		this.date_publication = date_publication;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Location [id=" + id + ", id_utilisateur=" + id_utilisateur
+		return "Location [id=" + id + ", idutilisateur=" + idutilisateur
 				+ ", titre=" + titre + ", resume=" + resume + ", adresse="
 				+ adresse + ", ville=" + ville + ", pays=" + pays
 				+ ", type_propriete=" + type_propriete + ", type_logement="

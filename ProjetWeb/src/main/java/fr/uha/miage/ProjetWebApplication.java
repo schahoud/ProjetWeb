@@ -1,3 +1,4 @@
+
 package fr.uha.miage;
 
 import org.springframework.boot.SpringApplication;

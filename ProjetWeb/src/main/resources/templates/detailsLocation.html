@@ -1,36 +1,434 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>AjiTertah s'occupe de votre hebergement</title>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Govihar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Custom Theme files -->
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all" />
+<link href="css/style.css" type="text/css" rel="stylesheet" media="all" />
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link type="text/css" rel="stylesheet" href="css/JFFormStyle-1.css" />
+<!-- js -->
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<!-- //js -->
+<!-- fonts -->
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,700italic,900,900italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' />
+<!-- //fonts -->	
+<script type="text/javascript">
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true   // 100% fit in a container
+			});
+		});
+	</script>
+<!--pop-up-->
+<script src="js/menu_jquery.js"></script>
+<!--//pop-up-->	
 </head>
 <body>
-<!--  
-	Details Reservation : <br/><br/>
+	<!--header-->
+	<div class="header">
+		<div class="container">
+			<div class="header-grids">
+				<div class="logo">
+					<h1><a  href="index.html"><span>Aji</span>Tertahe</a></h1>
+				</div>
+				<!--navbar-header-->
+				<div class="header-dropdown">
+					<div class="emergency-grid">
+						<ul>
+							<li>Contacter nous : </li>
+							<li class="call">+1 234 567 8901</li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="nav-top">
+				<div class="top-nav">
+					<span class="menu"><img src="images/menu.png" alt="" /></span>
+					<ul class="nav1">
+						<li><a href="Accueil">Accueil</a></li>
+						<li th:if="${session.utilisateur != null}"><a href="AjoutLocation">Partagez votre logement</a></li>
+						<li th:if="${session.utilisateur != null}"><a href="ListeLocation">Gérez vos annonces</a></li>
+						<li th:if="${session.utilisateur != null}"><a href="Profil">Votre profil</a></li>
+					</ul>
+					<div class="clearfix"> </div>
+					<!-- script-for-menu -->
+							 <script> 
+							   $( "span.menu" ).click(function() {
+								 $( "ul.nav1" ).slideToggle( 300, function() {
+								 // Animation complete.
+								  });
+								 });
+							
+							</script>
+						<!-- /script-for-menu -->
+				</div>
+				<div class="dropdown-grids">
+						<div id="loginContainer" th:if="${session.utilisateur == null}"><a href="/Login" id="loginButton" onclick="window.location = '/Login';"><span >Connexion</span></a>
+							
+						</div>
+						<div id="loginContainer" th:if="${session.utilisateur != null}"><a href="/Logout" id="loginButton" onclick="window.location = '/Logout';"><span >Déconnexion</span></a>
+							
+						</div>
+	
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!--//header-->
+	<!-- banner-bottom -->
+	<div class="banner-bottom">
+		<!-- container -->
+		<div class="container">
+			<div class="faqs-top-grids">
+				<!--single-page-->
+				<div class="single-page">
+				<form th:action="@{/Reservation}" method="post" >
+    
+						<div class="col-md-8 single-gd-lt">
+							<div class="single-pg-hdr">
+								<h2 th:text="${location.titre}">riye7e mriye7e molay 3e9obe</h2>
+								<p ><label th:text="${location.ville}">Eiusmod Tempor inc </label>, <label th:text="${location.pays}">St Dolore Place,Kingsport 56777</label></p>
+								<p>publiée le <label th:text="${location.date_publication}">Eiusmod Tempor inc </label></p>
+							</div>
+							<div class="flexslider">
+											<ul class="slides">
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p4.jpg">
+													<img src="images/p4.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p4.jpg">
+													<img src="images/p4.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p4.jpg">
+													<img src="images/p4.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p4.jpg">
+													<img src="images/p4.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p1.jpg">
+													<img src="images/p1.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p2.jpg">
+													<img src="images/p2.jpg" alt=""/>
+												</li>
+												<li data-thumb="images/p3.jpg">
+													<img src="images/p3.jpg" alt=""/>
+												</li>
+											</ul>
+							</div>
+										<!-- FlexSlider -->
+									<script  src="js/jquery.flexslider.js"></script>
+										<script>
+										// Can also be used with $(document).ready()
+										$(window).load(function() {
+										  $('.flexslider').flexslider({
+											animation: "slide",
+											controlNav: "thumbnails"
+										  });
+										});
+										</script>
 
-	Ville : <i th:text="${ville}"></i> <br/>
-	D�but : <i th:text="${date_debut}"></i> <br/>
-	Fin : <i th:text="${date_fin}"></i> <br/>
-	Nb voyageurs : <i th:text="${nb_voyageurs}"></i> <br/>
-	
-	
-	<br/><br/><br/><br/>
-	
-	Details Location : <br/><br/>
-	id : <i th:text="${item.id}"></i> <br/>
-	...
-	
-	<br/><br/>
-	
-	<form th:action="@{/DetailsLocation}" method="post" >
-       			 <input th:value="${item.id}"  name="id" type="hidden" />
-       			 <input th:value="${ville}"  name="ville" type="hidden" />
-				 <input th:value="${date_debut}"  name="date_debut" type="hidden" />
-				 <input th:value="${date_fin}" name="date_fin" type="hidden" />
-				 <input th:value="${nb_voyageurs}" name="nb_voyageurs" type="hidden" />
-		
-       	
-    			<p th:text="${item}">Item description here...</p>
-    			<input type="submit" value="Details/Reserver"/>
-    </form>-->
+						</div>
+						<div class="col-md-4 single-gd-rt">
+							<div class="spl-btn">
+								<div class="spl-btn-bor">
+									<a href="#">
+										<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>											
+									</a>
+									<p>Prix</p>	
+									<script>
+										$(document).ready(function(){
+										$('[data-toggle="tooltip"]').tooltip();   
+										});
+									</script>
+								</div>
+								<div class="sp-bor-btn text-right">
+									 <h4 th:text="' $' + ${location.prix_unit}">$4,850</h4> 
+									<br />
+									<a class="best-btn" th:href="@{/Reservation(id=${location.id})}">Réserver</a>
+								</div>
+							</div>
+							<div class="map-gd">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63718.72916803739!2d102.31975295000002!3d3.489618449999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31ceba2007355f81%3A0xd2ff1ad6a3ca801!2sMentakab%2C+Pahang%2C+Malaysia!5e0!3m2!1sen!2sin!4v1439535856431"></iframe>
+							</div>
+							<div class="other-comments">
+								<div class="comments-head">
+									<h3>Excellent</h3>
+									<p>4.5/5</p>
+									<div class="clearfix"></div>
+								</div>
+								<div class="comments-bot">
+									<p>"Vestibulum ullamcorper condimentum luctus. Ut ullamcorper elit eu auctor commodo."</p>
+									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> John Doe</h4>
+								</div>
+								<div class="comments-bot">
+									<p>"Aliquam non purus quis tellus varius egestas ut vitae tellus. Pellentesque non est ac tortor maximus imperdiet at id quam."</p>
+									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Luther</h4>
+								</div>
+								<div class="comments-bot">
+									<p>"Vestibulum sapien quam, interdum quis bibendum quis, malesuada a nisi. Proin at blandit justo."</p>
+									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Patrick</h4>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+				</form>
+				</div>
+				<!--//single-page-->
+			</div>
+			<div class="c-rooms">
+				<div class="p-table">
+					<div class="p-table-grids">
+						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>Caractéristiques</h6>
+							</div>
+							<div class="p-table-grid-info">
+								<!--<a href="#"><img src="images/p2.jpg" alt=""></a>-->
+								<div class="room-basic-info">
+									<p>Type de propriété :</p>
+									<h6 th:text="${location.type_propriete}">1 king bed or  2 single beds</h6>
+									
+									<p>Type de logement :</p>
+									<h6 th:text="${location.type_logement}">1 king bed or  2 single beds</h6>
+									
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>Options</h6>
+							</div>
+							<div class="rate-features">
+								<ul>
+									<li>Morbi mollis mattis</li>
+									<li>Donec egestas</li>
+									<li>Donec non risus</li>
+									<li>Pellentesque sem</li>
+									<li>Sed ut urna id metus</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6>Capacité</h6>
+							</div>
+							<div class="avg-rate">
+								<p>Nombre de chambres : <label th:text="${location.nbr_chambres}"></label></p>
+								<p>Nombre de lits : <label th:text="${location.nbr_lits}"></label></p>
+								<p>Nombre de salles de bain : <label th:text="${location.nbr_sallesBain}"></label></p>
+									
+							</div>
+							
+						</div>
+						<div class="col-md-3 p-table-grid">
+							<div class="p-table-grad-heading">
+								<h6> </h6>
+							</div>
+							
+							
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //banner-bottom -->
+	<!-- footer -->
+	<div class="footer">
+		<!-- container -->
+		<div class="container">
+			<div class="footer-top-grids">
+				<div class="footer-grids">
+					<div class="col-md-3 footer-grid">
+						<h4>Our Products</h4>
+						<ul>
+							<li><a href="index.html">Flight Schedule</a></li>
+							<li><a href="flights-hotels.html">City Airline Routes</a></li>
+							<li><a href="index.html">International Flights</a></li>
+							<li><a href="hotels.html">International Hotels</a></li>
+							<li><a href="bus.html">Bus Booking</a></li>
+							<li><a href="index.html">Domestic Airlines</a></li>
+							<li><a href="holidays.html">Holidays Trip</a></li>
+							<li><a href="hotels.html">Hotel Booking</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+						<h4>Company</h4>
+						<ul>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="faqs.html">FAQs</a></li>
+							<li><a href="terms.html">Terms &amp; Conditions</a></li>
+							<li><a href="privacy.html">Privacy </a></li>
+							<li><a href="contact.html">Contact Us</a></li>
+							<li><a href="#">Careers</a></li>
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="booking.html">Feedback</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+						<h4>Travel Resources</h4>
+						<ul>
+							<li><a href="holidays.html">Holidays Packages</a></li>
+							<li><a href="weekend.html">Weekend Getaways</a></li>
+							<li><a href="index.html">International Airports</a></li>
+							<li><a href="index.html">Domestic Flights Booking</a></li>
+							<li><a href="booking.html">Customer Support</a></li>
+							<li><a href="booking.html">Cancel Bookings</a></li>
+							<li><a href="booking.html">Print E-tickets</a></li>
+							<li><a href="booking.html">Customer Forums</a></li>
+							<li><a href="booking.html">Make a Payment</a></li>
+							<li><a href="booking.html">Complete Booking</a></li>
+							<li><a href="booking.html">Assurance Claim</a></li>
+							<li><a href="booking.html">Retail Offices</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid">
+						<h4>More Links</h4>
+						<ul class="chf_footer_list">
+							<li><a href="#">Flights Discount Coupons</a></li>
+							<li><a href="#">Domestic Airlines</a></li>
+							<li><a href="#">Indigo Airlines</a></li>
+							<li><a href="#">Air Asia</a></li>
+							<li><a href="#">Jet Airways</a></li>
+							<li><a href="#">SpiceJet</a></li>
+							<li><a href="#">GoAir</a></li>
+							<li><a href="#">Air India</a></li>
+							<li><a href="#">Domestic Flight Routes</a></li>
+							<li><a href="#">Indian City Flight</a></li>
+							<li><a href="#">Flight Sitemap</a></li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<!-- news-letter -->
+				<div class="news-letter">
+					<div class="news-letter-grids">
+						<div class="col-md-4 news-letter-grid">
+							<p>Toll Free No : <span>1234-5678-901</span></p>
+						</div>
+						<div class="col-md-4 news-letter-grid">
+							<p class="mail">Email : <a href="mailto:info@example.com">mail@example.com</a></p>
+						</div>
+						<div class="col-md-4 news-letter-grid">
+							<form>
+								<input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="" />
+								<input type="submit" value="Subscribe" />
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<!-- //news-letter -->
+			</div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //footer -->
+	<div class="footer-bottom-grids">
+		<!-- container -->
+		<div class="container">
+				<div class="footer-bottom-top-grids">
+					<div class="col-md-4 footer-bottom-left">
+						<h4>Download our mobile Apps</h4>
+						<div class="d-apps">
+							<ul>
+								<li><a href="#"><img src="images/app1.png" alt="" /></a></li>
+								<li><a href="#"><img src="images/app2.png" alt="" /></a></li>
+								<li><a href="#"><img src="images/app3.png" alt="" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-4 footer-bottom-left">
+						<h4>We Accept</h4>
+						<div class="a-cards">
+							<ul>
+								<li><a href="#"><img src="images/c1.png" alt="" /></a></li>
+								<li><a href="#"><img src="images/c2.png" alt="" /></a></li>
+								<li><a href="#"><img src="images/c3.png" alt="" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-4 footer-bottom-left">
+						<h4>Follow Us</h4>
+						<div class="social">
+							<ul>
+								<li><a href="#" class="facebook"> </a></li>
+								<li><a href="#" class="facebook twitter"> </a></li>
+								<li><a href="#" class="facebook chrome"> </a></li>
+								<li><a href="#" class="facebook dribbble"> </a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="copyright">
+						<p>Copyrights © 2015 Govihar . Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					</div>
+				</div>
+		</div>
+	</div>
+	<script  src="js/jquery.flexslider.js"></script>
+	<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>	
 </body>
 </html>
