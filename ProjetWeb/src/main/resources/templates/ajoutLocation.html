@@ -166,9 +166,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<input th:field="*{resume}" name="mot_de_passe" type="text" /><br/>
 		
 								<p>Photos (max. 3)</p>
-								<input name="file1" type="file" /><br/>
-								<input name="file2" type="file" /><br/>
-								<input name="file3" type="file" /><br/>
+								<input name="file1" type="file" required="required"/><br/>
+								<input name="file2" type="file" required="required"/><br/>
+								<input name="file3" type="file" required="required"/><br/>
 		
 		
 		
@@ -192,24 +192,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<br/>
 		
 								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Télévision" /> Télévision
+								<input type="checkbox" name="equipements" id="equipements" value="Télévision" /> Télévision
 								</label>   
 								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Climatisation" /> Climatisation
+								<input type="checkbox" name="equipements" id="equipements" value="Climatisation" /> Climatisation
 								</label> 
 								<br/>
 								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Cuisine" /> Cuisine
+								<input type="checkbox" name="equipements" id="equipements" value="Cuisine" /> Cuisine
 								</label>   
 								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Internet" /> Internet
+								<input type="checkbox" name="equipements" id="equipements" value="Internet" /> Internet
 								</label> 
 								<br/>
 								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Animaux acceptés" /> Animaux acceptés
+								<input type="checkbox" name="equipements" id="equipements" value="Animaux acceptés" /> Animaux acceptés
 								</label>   
 								<label style="display: inline-block;background: none;width: 50%;outline: none;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
-								<input type="checkbox" name="equipements" id="cbox1" value="Accès handicapés" /> Accès handicapés
+								<input type="checkbox" name="equipements" id="equipements" value="Accès handicapés" /> Accès handicapés
 								</label> 
 								<br/>
 								
@@ -221,9 +221,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p>Prix à la nuit</p> 
 								<input th:field="*{prix_unit}" name="email" type="text" /><br/>
 		
+								<!--  
 								<p>Devise</p>
 								<input th:field="*{devise}" name="mot_de_passe" type="text" /><br/>
-		
+								-->
 								
 								<input type="submit" value="valider l'annonce"/>
 								

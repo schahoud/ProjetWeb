@@ -116,11 +116,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<br/>
 								
 								<p>Type de propriété</p>
-								<input type="text" th:value="${location.type_propriete}" th:field="*{Type_propriete}"/>
+								<!-- <input type="text" th:value="${location.type_propriete}" th:field="*{Type_propriete}"/>-->
+								<select th:value="${location.type_propriete}" th:field="*{Type_propriete}" name="type_propriete" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
+								   <option value="Appartement">Appartement</option>
+								   <option value="Maison">Maison</option>
+								   <option value="Villa">Villa</option>
+								   <option value="Bateau">Bateau</option>
+								   <option value="Chalet">Chalet</option>
+								   <option value="Bungalow">Bungalow</option>
+								   <option value="Camping car">Camping car</option>
+								</select> 
+								
 								
 								<p>Type de logement</p>
-								<input type="text" th:value="${location.type_logement}" th:field="*{Type_logement}"/>
+								<!-- <input type="text" th:value="${location.type_logement}" th:field="*{Type_logement}"/> -->
 
+								<select th:value="${location.type_logement}" th:field="*{Type_logement}" name="type_logement" style="display: inline-block;background: none;border: 1.5px solid #CBCBCB;width: 100%;outline: none;padding: 10px 15px 10px 15px;font-size: .9em;font-weight: 400;color: #111111;margin-bottom: 1.5em;">
+								   <option value="Logement entier">Logement entier</option>
+								   <option value="Chambre privée">Chambre privée</option>
+								   <option value="Chambre partagée">Chambre partagée</option>
+								</select> 
+					
 								<p>Capacité d'accueil</p>
 								<input type="text" th:value="${location.capacite_accueil}" th:field="*{Capacite_accueil}"/>
 								
@@ -149,6 +165,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p>Description</p>
 								<input type="text" th:value="${location.resume}" th:field="*{Resume}"/><br/>
 		
+		<!--  
 								<p>Photo 1</p>
 								<input type="text" th:value="${location.photo1}" th:field="*{Photo1}"/>
 
@@ -157,7 +174,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 								<p>Photo 3</p>
 								<input type="text" th:value="${location.photo3}" th:field="*{Photo3}"/>
-
+-->
 
 								<br/><br/>
 								<h4>Adresse</h4>
@@ -172,7 +189,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p>Pays</p>
 								<input type="text" th:value="${location.pays}" th:field="*{pays}"/><br/>
 		
-		
+		<!--  
 		
 								<br/><br/>
 								<h4>Equipements</h4>
@@ -184,7 +201,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								
 								<p>Cuisine</p>
 								
-								
+				-->				
 								
 								<br/><br/>
 								<h4>Tarifs</h4>
@@ -193,9 +210,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<p>Prix à la nuit</p> 
 								<input type="text" th:value="${location.prix_unit}" th:field="*{Prix_unit}"/>
 
+								<!--  
 								<p>Devise</p>
 								<input type="text" th:value="${location.devise}" th:field="*{Devise}"/>
-	
+								-->
 								
 								<input type="submit" value="valider les modifications"/>
 								

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -31,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import fr.uha.miage.FileUpload;
+import fr.uha.miage.Hash;
 import fr.uha.miage.Mail;
 import fr.uha.miage.model.Location;
 import fr.uha.miage.model.LocationRepository;
@@ -104,6 +106,7 @@ public class mainController {
 	@RequestMapping(value="/AjoutUtilisateur", method=RequestMethod.POST)
 	public String validerInscription(Model model, Utilisateur  utilisateur, HttpServletRequest request) throws IOException {
 		utilisateur.setDate_inscription(new Date());
+		utilisateur.setMot_de_passe(Hash.getHash(utilisateur.getMot_de_passe(), "MD5"));
         utilisateurRepo.save(utilisateur);
         
         HttpSession session = request.getSession();
@@ -152,17 +155,20 @@ public class mainController {
 		return "listeUtilisateurs";
     }
 	
-	@RequestMapping("/ModifUtilisateur") 
-	public String modifUtilisateur(Model model, HttpServletRequest request) {		
+	@RequestMapping(value="/ModifUtilisateur") 
+	public String modifUtilisateur(Model model, HttpServletRequest request) {	
+		System.out.println(request.getMethod());
+		
 		HttpSession session = request.getSession();
 		if (session.getAttribute("utilisateur") == null)
 			return "redirect:/Accueil";
-		
+		System.out.println("oui ici");
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
-		model.addAttribute("utilisateur", utilisateurRepoImpl.rechercheUtilisateurById(u.getId()));
+		//model.addAttribute("utilisateur", utilisateurRepoImpl.rechercheUtilisateurById(u.getId()));
+		model.addAttribute("utilisateur", u);
 		return "modifUtilisateur";
     }
-	
+	  
 	@RequestMapping(value="/ModifUtilisateur", method=RequestMethod.POST)
 	public String validerModifUtilisateur(Model model, Utilisateur utilisateur, HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -180,8 +186,35 @@ public class mainController {
 			
 	    model.addAttribute("action", action);
 	    model.addAttribute("message", message);
-	    return "information";
+	    
+		
+		return "information";
     }
+	
+	
+	/*
+	@RequestMapping(value="/ModifUtilisateur", method=RequestMethod.POST)
+	public String validerModifUtilisateur(Model model, Utilisateur utilisateur, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("utilisateur") == null)
+			return "redirect:/Accueil";
+
+		utilisateurRepo.save(utilisateur);
+		System.out.println("new user : " + utilisateur.toString());
+		session.setAttribute("utilisateur", utilisateur);
+		
+		String action, message;
+		
+		action = "Modification des informations";
+	    message = "Vos informations personnelles ont été modifiées avec succès.";
+			
+	    model.addAttribute("action", action);
+	    model.addAttribute("message", message);
+	    
+		System.out.println("oui");
+		return "profil";
+    }*/
+	
 	
 	
 	
@@ -261,10 +294,17 @@ public class mainController {
 		Long id = Long.parseLong(request.getParameter("id"));
 		String mp = request.getParameter("nouveauMP");
 		Utilisateur u = utilisateurRepoImpl.rechercheUtilisateurById(id);
-		u.setMot_de_passe(mp);
+		//u.setMot_de_passe(mp);
+		u.setMot_de_passe(Hash.getHash(mp, "MD5"));
 		utilisateurRepoImpl.ajoutUtilisateur(u);
 		System.out.println("reinit " + utilisateurRepoImpl.countUtilisateurs());
-		return "reinitPassword";
+
+		String action = "Reinitialisation du mot de passe";
+		String message = "Votre mot de passe à été reinitialisé, vous pouvez vous connecter.";
+		
+		model.addAttribute("action", action);
+        model.addAttribute("message", message);
+		return "information";
     }
 	
 	@RequestMapping(value="/ModifPassword")
@@ -286,10 +326,11 @@ public class mainController {
 		System.out.println("ancien mp : " + ancienMP);
 		
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
-		if (u.getMot_de_passe().equals(ancienMP))
+		//if (u.getMot_de_passe().equals(ancienMP))
+		if (u.getMot_de_passe().equals(Hash.getHash(ancienMP, "MD5")))
 		{
 			Utilisateur u2 = utilisateurRepo.findByEmail(u.getEmail()).get(0);
-			u2.setMot_de_passe(nouveauMP);
+			u2.setMot_de_passe(Hash.getHash(nouveauMP, "MD5"));
 			utilisateurRepo.save(u2);
 			session.setAttribute("utilisateur", u2);
 		}
@@ -347,6 +388,7 @@ public class mainController {
 		
 		String email = utilisateur.getEmail();
 		String mot_de_passe = utilisateur.getMot_de_passe();
+		mot_de_passe = Hash.getHash(mot_de_passe, "MD5");
 		
 		model.addAttribute("utilisateur", new Utilisateur());
 		
@@ -418,6 +460,24 @@ public class mainController {
 			return "redirect:/Accueil";
 		Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
 		
+		String[] checkboxes = request.getParameterValues("equipements");
+        String equipements = "";
+        
+        if (checkboxes == null) {
+            
+            System.out.println (" Non Cochée ");
+        } else { 
+            for (int i = 0; i < checkboxes.length; ++i) {   
+                equipements += checkboxes[i] + ";";
+                System.out.println(checkboxes[i]);
+            }
+        }
+        
+        
+        //location.setPhoto1(location.getId()+"_file1");
+        //location.setPhoto2(location.getId()+"_file2");
+        //location.setPhoto3(location.getId()+"_file3");
+		location.setEquipements(equipements);
 		location.setDate_publication(new Date());
 		location.setIdutilisateur(utilisateur.getId());
 		locationRep.save(location);
@@ -430,13 +490,18 @@ public class mainController {
 		
         System.out.println(location);
         
-        String equipement = request.getParameter("equipements");
-        System.out.println(equipement);
+        
+
+        location.setPhoto1(location.getId()+"_file1");
+        location.setPhoto2(location.getId()+"_file2");
+        location.setPhoto3(location.getId()+"_file3");
+        locationRep.save(location);
         
         FileUpload.uploadProcess("C:\\Users\\soufi\\uploads", request, response, "file1", location.getId() + "_file1.jpeg");
 		FileUpload.uploadProcess("C:\\Users\\soufi\\uploads", request, response, "file2", location.getId() + "_file2.jpeg");
 		FileUpload.uploadProcess("C:\\Users\\soufi\\uploads", request, response, "file3", location.getId() + "_file3.jpeg");
-		 
+		
+		
 		
 		StringBuilder message1 = new StringBuilder();
 		message1.append("<HTML>");
@@ -455,7 +520,7 @@ public class mainController {
 		message1.append("<br/><br/>");
 		message1.append("Titre de l'annonce : " + location.getTitre());
 		message1.append("<br/><br/>");
-		message1.append("Vous pouvez visualiser votre annonce à partir de la ppage suivante : <br/>http://localhost:8080/DetailsLocation?id="+location.getId());
+		message1.append("Vous pouvez visualiser votre annonce à partir de la page suivante : <br/>http://localhost:8080/DetailsLocation?id="+location.getId());
 		message1.append("<br/><br/>");
 		message1.append("Merci pour votre confiance à notre service.");
 		message1.append("<br/><br/>");
@@ -528,8 +593,12 @@ public class mainController {
 		
 		locationRepoImpl.suppLocationById(id);  
 		
-	     System.out.println("nbr favoris dans bd : " + utilisateurRepo.count());
-	     return "redirect:/home";
+		String action = "Suppression de l'annonce";
+		String message = "Votre annonce a été bien supprimée.";
+		
+		model.addAttribute("action", action);
+        model.addAttribute("message", message);
+		return "information";
     }
 
 	
@@ -602,8 +671,31 @@ public class mainController {
 		Reservation resa = new Reservation(null, Long.parseLong(id), new Date(), new Date(), Integer.parseInt(nb_voyageurs), 0);
 		reservationsRepoImpl.ajoutReservation(resa);
 		System.out.println(reservationsRepoImpl.countReservation());*/
+		Location location = locationRepoImpl.rechercheLocationById(id);
+		String equi = location.getEquipements();
+		String[] equipements = null;
 		
-		model.addAttribute("location", locationRepoImpl.rechercheLocationById(id));
+		
+		List<String> e = new ArrayList<String>();
+		
+		try{
+			equipements = equi.split(";");
+			for (int i=0; i<=equipements.length-1; i++)
+			{
+				if (equipements.toString() != null)
+					e.add(equipements[i]);
+			}
+		}catch(Exception ee)
+		{
+			
+		}
+			
+		
+		
+		
+		
+		model.addAttribute("location", location);
+		model.addAttribute("equipements", equipements);
 		return "detailsLocation";
     }
 	

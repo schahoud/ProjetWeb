@@ -46,13 +46,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="header-grids">
 				<div class="logo">
-					<h1><a  href="index.html"><span>Aji</span>Tertahe</a></h1>
+					<h1><a  href="index.html"><span>Aji</span>Terrah</a></h1>
 				</div>
 				<!--navbar-header-->
 				<div class="header-dropdown">
 					<div class="emergency-grid">
 						<ul>
-							<li>Contacter nous : </li>
+							<li>Contactez-nous </li>
 							<li class="call">+1 234 567 8901</li>
 						</ul>
 					</div>
@@ -64,7 +64,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-nav">
 					<span class="menu"><img src="images/menu.png" alt="" /></span>
 					<ul class="nav1">
-						<li><a href="Accueil">Accueil</a></li>
+					<li><a href="Accueil">Accueil</a></li>
 						<li th:if="${session.utilisateur != null}"><a href="AjoutLocation">Partagez votre logement</a></li>
 						<li th:if="${session.utilisateur != null}"><a href="ListeLocation">Gérez vos annonces</a></li>
 						<li th:if="${session.utilisateur != null}"><a href="Profil">Votre profil</a></li>
@@ -88,7 +88,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div id="loginContainer" th:if="${session.utilisateur != null}"><a href="/Logout" id="loginButton" onclick="window.location = '/Logout';"><span >Déconnexion</span></a>
 							
 						</div>
-	
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -100,191 +99,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!-- container -->
 		<div class="container">
 			<div class="faqs-top-grids">
-				<!--single-page-->
-				<div class="single-page">
-				<form th:action="@{/Reservation}" method="post" >
-    
-						<div class="col-md-8 single-gd-lt">
-							<div class="single-pg-hdr">
-								<h2 th:text="${location.titre}">riye7e mriye7e molay 3e9obe</h2>
-								<p ><label th:text="${location.ville}">Eiusmod Tempor inc </label>, <label th:text="${location.pays}">St Dolore Place,Kingsport 56777</label></p>
-								<p>publiée le <label th:text="${location.date_publication}">Eiusmod Tempor inc </label></p>
-							</div>
-							<div class="flexslider">
-											<ul class="slides">
-												<li data-thumb="images/p1.jpg">
-													<img src="images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p2.jpg">
-													<img src="images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p3.jpg">
-													<img src="images/p3.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p4.jpg">
-													<img src="images/p4.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p1.jpg">
-													<img src="images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p2.jpg">
-													<img src="images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p3.jpg">
-													<img src="images/p3.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p4.jpg">
-													<img src="images/p4.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p1.jpg">
-													<img src="images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p2.jpg">
-													<img src="images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p3.jpg">
-													<img src="images/p3.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p4.jpg">
-													<img src="images/p4.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p1.jpg">
-													<img src="images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p2.jpg">
-													<img src="images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p3.jpg">
-													<img src="images/p3.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p4.jpg">
-													<img src="images/p4.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p1.jpg">
-													<img src="images/p1.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p2.jpg">
-													<img src="images/p2.jpg" alt=""/>
-												</li>
-												<li data-thumb="images/p3.jpg">
-													<img src="images/p3.jpg" alt=""/>
-												</li>
-											</ul>
-							</div>
-										<!-- FlexSlider -->
-									<script  src="js/jquery.flexslider.js"></script>
-										<script>
-										// Can also be used with $(document).ready()
-										$(window).load(function() {
-										  $('.flexslider').flexslider({
-											animation: "slide",
-											controlNav: "thumbnails"
-										  });
-										});
-										</script>
-
+				<div class="book-grids">
+					<div class="col-md-6 book-left">
+						<div class="book-left-info">
+							<h3>Modification de vos informations</h3>
 						</div>
-						<div class="col-md-4 single-gd-rt">
-							<div class="spl-btn">
-								<div class="spl-btn-bor">
-									<a href="#">
-										<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>											
-									</a>
-									<p>Prix</p>	
-									<script>
-										$(document).ready(function(){
-										$('[data-toggle="tooltip"]').tooltip();   
-										});
-									</script>
-								</div>
-								<div class="sp-bor-btn text-right">
-									 <h4 th:text="' $' + ${location.prix_unit}">$4,850</h4> 
-									<br />
-									<a class="best-btn" th:href="@{/Reservation(id=${location.id})}">Réserver</a>
-								</div>
-							</div>
-							<div class="map-gd">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63718.72916803739!2d102.31975295000002!3d3.489618449999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31ceba2007355f81%3A0xd2ff1ad6a3ca801!2sMentakab%2C+Pahang%2C+Malaysia!5e0!3m2!1sen!2sin!4v1439535856431"></iframe>
-							</div>
-							<div class="other-comments">
-								<div class="comments-head">
-									<h3>Excellent</h3>
-									<p>4.5/5</p>
-									<div class="clearfix"></div>
-								</div>
-								<div class="comments-bot">
-									<p>"Vestibulum ullamcorper condimentum luctus. Ut ullamcorper elit eu auctor commodo."</p>
-									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> John Doe</h4>
-								</div>
-								<div class="comments-bot">
-									<p>"Aliquam non purus quis tellus varius egestas ut vitae tellus. Pellentesque non est ac tortor maximus imperdiet at id quam."</p>
-									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Luther</h4>
-								</div>
-								<div class="comments-bot">
-									<p>"Vestibulum sapien quam, interdum quis bibendum quis, malesuada a nisi. Proin at blandit justo."</p>
-									<h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Patrick</h4>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-				</form>
-				</div>
-				<!--//single-page-->
-			</div>
-			<div class="c-rooms">
-				<div class="p-table">
-					<div class="p-table-grids">
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Caractéristiques</h6>
-							</div>
-							<div class="p-table-grid-info">
-								<!--<a href="#"><img src="images/p2.jpg" alt=""></a>-->
-								<div class="room-basic-info">
-									<p>Type de propriété :</p>
-									<h6 th:text="${location.type_propriete}">1 king bed or  2 single beds</h6>
-									
-									<p>Type de logement :</p>
-									<h6 th:text="${location.type_logement}">1 king bed or  2 single beds</h6>
-									
-								</div>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Options</h6>
-							</div>
-							<div class="rate-features">
-								<ul>
-									<li th:each="item : ${equipements}"><p th:text="${item}">Option here...</p></li>
+						<div class="book-left-form">
+							<form th:action="@{/ModifUtilisateur}" method="post" th:object="${utilisateur}">
+								<input type="hidden" th:value="${utilisateur.id}" th:field="*{Id}"/>
+								<input type="hidden" th:value="${utilisateur.mot_de_passe}" th:field="*{Mot_de_passe}"/>
+								<input type="hidden" th:value="${utilisateur.email}" th:field="*{Email}"/>
+								<input type="hidden" th:value="${utilisateur.bloque}" th:field="*{Bloque}"/>
+								<input type="hidden" th:value="${utilisateur.nb_tentatives}" th:field="*{Nb_tentatives}"/>
+								<input type="hidden" th:value="${utilisateur.date_inscription}" th:field="*{Date_inscription}"/>
 								
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6>Capacité</h6>
-							</div>
-							<div class="avg-rate">
-								<p>Nombre de chambres : <label th:text="${location.nbr_chambres}"></label></p>
-								<p>Nombre de lits : <label th:text="${location.nbr_lits}"></label></p>
-								<p>Nombre de salles de bain : <label th:text="${location.nbr_sallesBain}"></label></p>
-									
-							</div>
+								
+								<p>Nom</p>
+								<input th:value="${utilisateur.nom}" th:field="*{Nom}" name="nom" type="text" />
+		
+								<p>Prénom</p>
+								<input th:value="${utilisateur.prenom}" th:field="*{Prenom}" name="prenom" type="text" /><br/>
+					
+								<p>Sexe</p>
+								<input th:value="${utilisateur.sexe}" th:field="*{Sexe}" name="sexe" type="text" />
+								
+								
+								<p>Adresse complète</p>
+								<input th:value="${utilisateur.adresse}" th:field="*{Adresse}" name="adresse" type="text" /><br/>
+		
+								<p>Ville, Pays (ex : Mulhouse, France)</p>
+								<input th:value="${utilisateur.ville}" th:field="*{Ville}" name="ville" type="text" /><br/>
+					
+				
+								<input type="submit" value="valider les modifications"/>
+								
 							
+							</form>
 						</div>
-						<div class="col-md-3 p-table-grid">
-							<div class="p-table-grad-heading">
-								<h6> </h6>
-							</div>
-							
-							
-						</div>
-						<div class="clearfix"> </div>
 					</div>
+					<div class="col-md-6 book-left book-right">
+			
+					</div>
+					<div class="clearfix"> </div>
 				</div>
-				
-				
 			</div>
 		</div>
 		<!-- //container -->
@@ -297,7 +154,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="footer-top-grids">
 				<div class="footer-grids">
 					<div class="col-md-3 footer-grid">
-						<h4>Our Products</h4>
+						<h4>Nos Produits</h4>
 						<ul>
 							<li><a href="index.html">Flight Schedule</a></li>
 							<li><a href="flights-hotels.html">City Airline Routes</a></li>
@@ -423,7 +280,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 		</div>
 	</div>
-	<script  src="js/jquery.flexslider.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
 	<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
 	<script src="js/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>	

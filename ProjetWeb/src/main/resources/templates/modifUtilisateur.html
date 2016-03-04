@@ -105,13 +105,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<h3>Modification de vos informations</h3>
 						</div>
 						<div class="book-left-form">
-							<form th:action="@{/ModifUtilisateur}" method="post" th:object="${utilisateur}">
+							<form th:action="@{/ModifUtilisateur}" method="post"  th:object="${utilisateur}">
 								<input type="hidden" th:value="${utilisateur.id}" th:field="*{Id}"/>
 								<input type="hidden" th:value="${utilisateur.mot_de_passe}" th:field="*{Mot_de_passe}"/>
 								<input type="hidden" th:value="${utilisateur.email}" th:field="*{Email}"/>
 								<input type="hidden" th:value="${utilisateur.bloque}" th:field="*{Bloque}"/>
 								<input type="hidden" th:value="${utilisateur.nb_tentatives}" th:field="*{Nb_tentatives}"/>
-								<input type="hidden" th:value="${utilisateur.date_inscription}" th:field="*{Date_inscription}"/>
+								<!-- <input type="hidden" th:value="${utilisateur.date_inscription}" th:field="*{Date_inscription}"/>-->
 								
 								
 								<p>Nom</p>
@@ -121,8 +121,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<input th:value="${utilisateur.prenom}" th:field="*{Prenom}" name="prenom" type="text" /><br/>
 					
 								<p>Sexe</p>
-								<input th:value="${utilisateur.sexe}" th:field="*{Sexe}" name="sexe" type="text" /><br/>
-						
+								<input th:value="${utilisateur.sexe}" th:field="*{Sexe}" name="sexe" type="text" />
+								
+								
 								<p>Adresse complète</p>
 								<input th:value="${utilisateur.adresse}" th:field="*{Adresse}" name="adresse" type="text" /><br/>
 		
