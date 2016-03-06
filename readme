@@ -1,0 +1,28 @@
+Pour lancer l'application web, il faut suivre les étapes suivantes : 
+
+1. Lancez eclipse JEE.
+2. Importez le projet sur l'environnement d'eclipse soit en cliquant sur > Fichier > Importer dans le menu en haut, ou en faisant un clique droit dans l'explorateur de projets puis importer.
+3. Choisissez comme source d'importation : Projects from Git, > suivant.
+4. Choisissez pour l'emplacement du repository Git : Clone URI, > suivant.
+4. Mettez les informations suivantes pour la source : 
+    URI > https://github.com/schahoud/ProjetWeb.git
+    vous pouvez trouver l'URI en accédant au repository de notre projet sur GitHub en utilisant l'URL https://github.com/schahoud/ProjetWeb
+    après avoir collé l'URI il va remplir automatiquement les champs Host et Repository Path.
+    > Par la suite, vous devez entrer vos informations d'authentification sur Github (user, password) dans la zone en bas.
+    > suivant
+    
+5. Pour la selection de la branche, il faut choisir Master, > suivant.
+6. Pour le répértoire destination, vous avez le choix de selectionnez là ou vous voulez que le projet soit copié (exemple : C:\Users\soufiane\git\ProjetWeb).
+    Remarque : il est conseillé que le nom du dossier répértoire soit identique au nom du projet c'est à dire "ProjetWeb".  
+    > suivant
+7. Pour les 3 choix du (Wizard for project import), choisissez le premier choix c'est à dire "importer à partir d'un projet existant", > suivant.
+8. Attendez que le projet soit téléchargé.
+
+10. Cherchez le fichier ProjetWebApplication.java qui contient la classe main.
+    vous devez le trouver dans le package fr.uha.miage qui se trouve dans le dossier src/main/java.
+11. Clique droit sur le nom du fichier, Run As, Java Application.
+12. Vous pouvez constater l'execution du projet sur la console, si elle est réussite vous aurez une information qui ressemble à :
+    2016-03-06 21:23:34.559  INFO 4524 --- [           main] fr.uha.miage.ProjetWebApplication        : Started ProjetWebApplication in 10.981 seconds (JVM running for 11.735)
+13. L'accès au site web se fait en tapant sur le navigateur l'URL : http://localhost:8080/Accueil
+
+Remarque : Initialement, la base de donnée est vide.
